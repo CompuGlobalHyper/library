@@ -13,4 +13,78 @@ header {
 .container {
     height: 100vh;
     width:100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.header {
+    margin: 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.header-links {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 0.3;
+    align-items: center;
+}
+.library {
+    flex: 0.5;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.submit-container {
+    flex: 0.4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.submit-form {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    flex: 0.5;
+}
+
+.library-title {
+    text-align: center;
+}
+
+.bookBubble {
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content:space-between;
+    margin: 1rem;
+}
+
+#text-area {
+    text-align: center;
+    margin: 3rem 1rem 1rem 1rem;
+}
+.text-area-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#add-book-button {
+    margin: 2rem 10rem 0 10rem;
 }
