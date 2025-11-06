@@ -3,40 +3,118 @@ const library = [
     {name: "Defintely Real Book", author: "Me" }
 ]
 
+const bookBag = [
+    {name: "Favorite Book", author: "Me"},
+    {name: "How to Code", author: "World's Best Programmer",}
+]
+
 function Books (name, author) {
     this.name = name
     this.author = author
 
 }
 
+
+
+function giveBookId (array){
+    for (let element of array) {
+        element.id = crypto.randomUUID()
+    }
+}
+
 function logBook(name, author) {
     const book = new Books(name, author)
     book.id = crypto.randomUUID()
     library.push(book)
+    return book
 }
 
-function displayBooks(array) {
-    for (let element of array) {
-        createBookBubble(element)
-        //console.log(element.id)
-    }
-}
 
 const libraryContainer = document.querySelector('div.library-container')
-function createBookBubble(object) {
+const basketContainer = document.querySelector('div.basket-container')
+
+giveBookId(library)
+giveBookId(bookBag)
+
+for (let element of library) {
+    createBookBubble(element, libraryContainer, 'Add to basket')
+}
+for (let element of bookBag) {
+    createBookBubble(element, basketContainer, 'Return to library')
+}
+
+function createBookBubble(object, container, string) {
     let bookBubble = document.createElement('div')
-    bookBubble.classList.add('bookBubble')
+    
 
     let bookText = document.createElement('p')
     bookText.textContent = `"${object.name}" by ${object.author}`
     bookBubble.appendChild(bookText)
+    bookBubble.classList.add('bookBubble')
 
     let bookButton = document.createElement('button')
     bookButton.classList.add('bookButton')
-    bookButton.textContent = 'Add to basket'
+
+    
+    bookButton.textContent = string
+    bookButton.setAttribute('data-id', object.id)
+    bookBubble.id = object.id
+
+
     bookBubble.appendChild(bookButton)
 
-    libraryContainer.appendChild(bookBubble)
+    container.appendChild(bookBubble)
 }
 
-displayBooks(library)
+
+document.querySelector('.add-book-button').addEventListener('click', function(event) {
+    
+})
+
+
+document.querySelector('.bookButton').addEventListener('click', function(event) {
+    
+
+})
+
+document.addEventListener('click', function(event) {
+    const target = event.target
+    if (target.classList.contains('add-book-button')) {
+        event.preventDefault()
+        const name = document.getElementById('bookname').value
+        const author = document.getElementById('authorname').value
+        const textArea = document.getElementById('comment').value
+
+        const nameClear = document.getElementById('bookname')
+        const authorClear = document.getElementById('authorname')
+        const textAreaClear = document.getElementById('comment')
+        if (!name || !author) return
+        
+        let book = logBook(name, author)
+        createBookBubble(book, libraryContainer, 'Add to basket')
+
+        nameClear.value = '';
+        authorClear.value = '';
+        textAreaClear.value = '';
+        return
+    }
+    if (target.classList.contains('bookButton')) {
+        let id = target.getAttribute('data-id')
+        document.getElementById(id).remove()
+        for (let element of library) {
+            if (element.id === id) {
+                bookBag.push(...library.splice(library.indexOf(element), 1))
+                createBookBubble(element, basketContainer, 'Return to library')
+                return
+            }
+        }
+        for (let element of bookBag) {
+            if (element.id === id) {
+                library.push(...bookBag.splice(bookBag.indexOf(element), 1))
+                createBookBubble(element, libraryContainer, 'Add to basket')
+                return
+        }
+    }
+    }
+
+})

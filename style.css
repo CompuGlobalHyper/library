@@ -11,18 +11,20 @@ header {
     height: 20%;
 }
 .container {
-    height: 100vh;
-    width:100vw;
+    height: 100%;
+    width:100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 .header {
-    margin: 0 3rem;
+    padding: 0 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid black;
+    background-color: aliceblue;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 5px rgb(195, 190, 190);
 }
 
 .header-links {
@@ -31,13 +33,26 @@ header {
     flex-grow: 0.3;
     align-items: center;
 }
+div.link {
+    background-color: white;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid black;
+    
+}
 .library {
     flex: 0.5;
+    border: 1px solid black;
+    padding: 0 2rem;
+    border-radius: 8px;
 }
+
 
 .content {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex: 1;
 }
 
@@ -45,7 +60,8 @@ header {
     flex: 0.4;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: left;
+    
 }
 
 .submit-form {
@@ -53,6 +69,7 @@ header {
     justify-content: left;
     flex-direction: column;
     flex: 0.5;
+    padding: 0 2rem 2rem 2rem;
 }
 
 .library-title {
@@ -63,7 +80,7 @@ header {
     border: 1px solid black;
     border-radius: 8px;
     padding: 1rem;
-    margin: 1rem 0;
+    margin: 1rem 2rem;
     display: flex;
     justify-content: space-between;
 }
@@ -72,19 +89,105 @@ header {
     align-items: center;
     display: flex;
     justify-content:space-between;
-    margin: 1rem;
+    margin: 1rem 1rem 1rem 0;
 }
 
 #text-area {
-    text-align: center;
-    margin: 3rem 1rem 1rem 1rem;
+    margin: 1rem 1rem 1rem 0;
 }
 .text-area-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 
-#add-book-button {
-    margin: 2rem 10rem 0 10rem;
+
+.add-book-button {
+    margin: 2rem 5rem 0 5rem;
+}
+
+h2 {
+    text-align: center;
+}
+
+.basket-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    border: 1px solid black;
+    border-radius: 8px;
+    flex: 1;
+}
+
+button {
+    max-width: 10rem;
+    padding: 0.2rem 1rem;
+}
+
+#comment {
+    min-width: 30rem;
+    min-height: 10rem;
+}
+
+#bookname, #authorname {
+    min-width: 15rem;
+
+}
+
+
+@media (max-width: 1000px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        background-color: aliceblue;
+        margin-bottom: 2rem;
+        box-shadow: 0 5px 5px rgb(195, 190, 190);
+        
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 0 2rem;
+        gap: 2rem;
+    }
+    .header-title {
+        min-height: 2rem;
+    }
+    .header-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        gap: 0.5rem;
+    }
+    .bookBubble {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .submit-container {
+        flex: 0.4;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .submit-form {
+        display: flex;
+        justify-content: left;
+        flex-direction: column;
+        flex: 0.5;
+        padding: 0 0.5rem 2rem 0.5rem;
+    }
+    .form-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content:space-between;
+    margin: 1rem 10rem 1rem 10rem;
+}
 }

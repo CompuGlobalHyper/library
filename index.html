@@ -13,16 +13,16 @@
                 <h1>myLibrary</h1>
             </div>
             <div class="header-links">
-                <div><p class="link"></p>Browse</div>
-                <div><p class="link"></p>Find</div>
-                <div><p class="link"></p>Explore</div>
-                <div><p class="link"></p>Search</div>  
+                <div class="link"><p ></p>Browse</div>
+                <div class="link"><p class="link"></p>Find</div>
+                <div class="link"><p class="link"></p>Explore</div>
+                <div class="link"><p class="link"></p>Search</div>  
             </div>
         </div>
         <div class="content">
             <div class="library">
                 <div class="library-title">
-                    <h2 class="library-header-text">Books</h2>
+                    <h2 class="library-header-text">availableBooks</h2>
                 </div>
                 <div class="library-container"></div>
             </div>
@@ -30,22 +30,21 @@
                 <div class="submit-form">
                     <h2 id="add-books">addBooks</h2>
                     <form>
-                        <div class="form-wrapper"><label>Book name:</label><input type='text' name='bookname'></div>
-                        <div class="form-wrapper"><label>Author name:</label><input type='text' name='authorname'></div>
+                        <div class="form-wrapper"><label>Book name:</label><input type='text' name='bookname' id="bookname"></div>
+                        <div class="form-wrapper"><label>Author name:</label><input type='text' name='authorname' id="authorname"></div>
                         <div class="text-area-wrapper">
-                            <div id="text-area">Why do you want to add the book (optional):</div><textarea rows="10" cols="20" name="comment"></textarea>
-                            <button id="add-book-button">Add book</button>
+                            <div id="text-area">Why do you want to add the book (optional):</div><textarea name="comment" id="comment"></textarea>
+                            <button class="add-book-button">Add book</button>
                         </div>
                     </form>
                 </div>
                 <div class="basket-container">
                     <div class="basket-title"><h2>yourBasket</h2></div>
-                    <ul class="basket-list"></ul>
                 </div>
             </div>
         </div>
         <div class="footer">
-            <p>Placeholder Text</p>
+            <p></p>
         </div>
     </div>
     
