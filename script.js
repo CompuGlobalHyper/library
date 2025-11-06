@@ -4,17 +4,20 @@ const library = [
 ]
 
 const bookBag = [
-    {name: "Favorite Book", author: "Me"},
-    {name: "How to Code", author: "World's Best Programmer",}
+    {name: "Favorite Book", author: "Me",  read: false},
+    {name: "How to Code", author: "World's Best Programmer", read: false}
 ]
 
 function Books (name, author) {
     this.name = name
     this.author = author
+    this.read = false
 
 }
 
-
+Books.prototype.isRead = () => {
+    this.read = !this.read
+}
 
 function giveBookId (array){
     for (let element of array) {
@@ -60,8 +63,33 @@ function createBookBubble(object, container, string) {
     bookButton.setAttribute('data-id', object.id)
     bookBubble.id = object.id
 
+    let checkRead = document.createElement('input')
+    checkRead.type = 'checkbox'
+    checkRead.classList.add('checkRead')
+    checkRead.id = 'check-read'
+    let readLabel = document.createElement('label')
+    readLabel.htmlFor = 'check-read'
+    readLabel.textContent = 'Already read?'
 
-    bookBubble.appendChild(bookButton)
+    checkRead.addEventListener('click', () => {
+    if (checkRead.checked) {
+        object.read = true
+    }
+})
+
+    if (object.read) {
+        checkRead.checked = true;
+    }
+
+    let optionsContainer = document.createElement('div')
+    optionsContainer.classList.add('optionsContainer')
+
+    bookBubble.appendChild(optionsContainer)
+
+    optionsContainer.appendChild(bookButton)
+    optionsContainer.appendChild(readLabel)
+    optionsContainer.appendChild(checkRead)
+
 
     container.appendChild(bookBubble)
 }
@@ -118,3 +146,5 @@ document.addEventListener('click', function(event) {
 closePrideButton.addEventListener('click', () => {
     dialog.close()
 })
+
+
