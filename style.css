@@ -1,14 +1,26 @@
+*, *::before, *::after {
+    font-family: 'Courier New', Courier, monospace;
+    
+}
 html, body {
    margin: 0;
    padding: 0; 
 }
-
+:root {
+    --primary-color: #15b283;
+    --accent-color:#b3e5d6;
+}
 body {
     height: 100%;
     display: block;
 }
 header {
     height: 20%;
+}
+
+h1 {
+    color: var(--primary-color);
+
 }
 .container {
     height: 100%;
@@ -22,7 +34,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: aliceblue;
+    background-color: whitesmoke;
     margin-bottom: 2rem;
     box-shadow: 0 5px 5px rgb(195, 190, 190);
 }
@@ -34,12 +46,13 @@ header {
     align-items: center;
 }
 div.link {
-    background-color: white;
+    background-color: var(--primary-color);
+    color: whitesmoke;
     padding: 0 1rem;
     display: flex;
     align-items: center;
     border-radius: 8px;
-    border: 1px solid black;
+    border: 1px solid whitesmoke;
     
 }
 .library {
@@ -101,10 +114,30 @@ div.link {
     justify-content: space-between;
     align-items: center;
 }
-
-
-.add-book-button {
+.add-book-div {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
     margin: 2rem 5rem 0 5rem;
+}
+
+dialog {
+    border: 1px solid grey;
+    border-radius: 8px;
+}
+
+dialog::backdrop {
+  background-image: linear-gradient(
+    45deg,
+    magenta,
+    rebeccapurple,
+    dodgerblue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+  opacity: 0.75;
 }
 
 h2 {
@@ -123,18 +156,45 @@ h2 {
 button {
     max-width: 10rem;
     padding: 0.2rem 1rem;
+    border: 1px solid white;
+    border-radius: 8px;
+    background-color: var(--accent-color);
 }
 
+button:hover {
+    background-color: var(--primary-color);
+    color: whitesmoke;
+    transition: 0.5s;
+}
+
+input {
+    border: 1px solid grey;
+    border-radius: 8px;
+    padding: 0.2rem;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid var(--primary-color);
+}
 #comment {
-    min-width: 30rem;
-    min-height: 10rem;
+    width: max(25vw, 150px);
+    height: max(12vw, 80px);
+    border: 1px solid grey;
+    border-radius: 8px;
 }
 
-#bookname, #authorname {
-    min-width: 15rem;
+textarea:focus {
+    outline: none;
+    border: 1px solid var(--primary-color);
 
 }
+@media (min-width: 1000px){
+    #bookname, #authorname {
+        min-width: 15rem;
 
+    }
+}
 
 @media (max-width: 1000px) {
     .header {
@@ -188,6 +248,9 @@ button {
     align-items: center;
     display: flex;
     justify-content:space-between;
-    margin: 1rem 10rem 1rem 10rem;
-}
+    margin: 1rem 10vw 1rem 10vw;
+    }
+    #comment {
+        min-width: 50vw;
+    }
 }

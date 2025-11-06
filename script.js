@@ -66,16 +66,9 @@ function createBookBubble(object, container, string) {
     container.appendChild(bookBubble)
 }
 
-
-document.querySelector('.add-book-button').addEventListener('click', function(event) {
-    
-})
-
-
-document.querySelector('.bookButton').addEventListener('click', function(event) {
-    
-
-})
+const dialog = document.querySelector('dialog')
+const prideButton = document.querySelector('button.pride-button')
+const closePrideButton = document.querySelector('dialog button')
 
 document.addEventListener('click', function(event) {
     const target = event.target
@@ -113,8 +106,15 @@ document.addEventListener('click', function(event) {
                 library.push(...bookBag.splice(bookBag.indexOf(element), 1))
                 createBookBubble(element, libraryContainer, 'Add to basket')
                 return
+            }
         }
     }
+    if (target.classList.contains('pride-button')) {
+        event.preventDefault()
+        dialog.showModal()
     }
+})
 
+closePrideButton.addEventListener('click', () => {
+    dialog.close()
 })
