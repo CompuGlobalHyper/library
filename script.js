@@ -1,13 +1,3 @@
-const library = [
-    {name: "Fake Book", author: "You"}, 
-    {name: "Defintely Real Book", author: "Me" }
-]
-
-const bookBag = [
-    {name: "Favorite Book", author: "Me",  read: false},
-    {name: "How to Code", author: "World's Best Programmer", read: false}
-]
-
 function Books (name, author) {
     this.name = name
     this.author = author
@@ -15,9 +5,19 @@ function Books (name, author) {
 
 }
 
-Books.prototype.isRead = () => {
+Books.prototype.isRead = function() {
     this.read = !this.read
 }
+
+let bookOne = new Books("Fake Book", "You")
+let bookTwo = new Books("Defintely Real Book", "Me")
+
+const library = [bookOne, bookTwo]
+
+let bookThree = new Books("Favorite Book", "Me")
+let bookFour = new Books("How to Code", "World's Best Programmer")
+
+const bookBag = [bookThree, bookFour]
 
 function giveBookId (array){
     for (let element of array) {
@@ -72,10 +72,8 @@ function createBookBubble(object, container, string) {
     readLabel.textContent = 'Already read?'
 
     checkRead.addEventListener('click', () => {
-    if (checkRead.checked) {
-        object.read = true
-    }
-})
+        object.isRead()
+    })
 
     if (object.read) {
         checkRead.checked = true;
