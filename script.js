@@ -100,6 +100,7 @@ document.addEventListener('click', function(event) {
     const target = event.target
     if (target.classList.contains('add-book-button')) {
         event.preventDefault()
+        
         const name = document.getElementById('bookname').value
         const author = document.getElementById('authorname').value
         const textArea = document.getElementById('comment').value
@@ -107,8 +108,10 @@ document.addEventListener('click', function(event) {
         const nameClear = document.getElementById('bookname')
         const authorClear = document.getElementById('authorname')
         const textAreaClear = document.getElementById('comment')
-        if (!name || !author) return
-        
+        if (name.length < 3 || author.length < 3) {
+            alert('Field(s) are too short!')
+            return
+        }
         let book = logBook(name, author)
         createBookBubble(book, libraryContainer, 'Add to basket')
 

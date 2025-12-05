@@ -181,6 +181,10 @@ button:hover {
     transition: 0.5s;
 }
 
+input:valid {
+    border: 1px solid var(--primary-color);
+}
+
 input {
     border: 1px solid grey;
     border-radius: 8px;
@@ -191,6 +195,12 @@ input:focus {
     outline: none;
     border: 1px solid var(--primary-color);
 }
+
+input:invalid {
+    border: 1px solid red
+}
+
+
 #comment {
     width: max(25vw, 150px);
     height: max(12vw, 80px);
